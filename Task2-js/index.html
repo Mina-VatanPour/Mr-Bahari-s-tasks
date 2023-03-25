@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rock-Paper-Scissors-Game</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="container p-5 mt-5">
+
+    <div class="row d-flex justify-content-center mb-5">
+        <p class="text-center fw-bold text-primary">How many rounds do you want to play?</p>
+        <input class="col-md-3" type="number" id="inputVal" min="1" value="" />
+    </div>
+
+    <div class="row d-flex justify-content-center mb-5">
+        <button type="button" class="buttonSelect btn btn-outline-primary col-md-1 mx-1" id="rock">Rock</button>
+        <button type="button" class="buttonSelect btn btn-outline-primary col-md-1 mx-1" id="paper">Paper</button>
+        <button type="button" class="buttonSelect btn btn-outline-primary col-md-1 mx-1" id="scissors">Scissors</button>
+    </div>
+
+    <div class="row d-flex justify-content-center mb-5">
+
+        <div class="col-md-3 text-center border rounded p-4 ">
+            <p class="fw-bold">Player :</p>
+            <span id="playerItem" class="text-primary fw-bolder fs-3"></span>
+            <h3 class="my-3"><span class="badge bg-secondary" id="playerResult"></span></h3>
+        </div>
+
+        <div class="col-md-3 text-center mx-5 border rounded p-4 ">
+            <p class="fw-bold">Computer : </p>
+            <span id="computerItem" class="text-info fw-bolder fs-3"></span>
+            <h3 class="my-3"><span class="badge bg-secondary" id="computerResult"></span></h3>
+        </div>
+
+    </div>
+
+    <div class="row text-center mb-5">
+        <span id="totalResult" class="fw-bolder fs-2"></span>
+    </div>
+
+
+</div>
+
+<script src="./app.js"></script>
+</body>
+</html>
