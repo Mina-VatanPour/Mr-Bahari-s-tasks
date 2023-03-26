@@ -8,8 +8,8 @@ class Acts {
 
     titlesArr = [];
 
-    constructor() {
-        this.root = "https://jsonplaceholder.typicode.com/posts";
+    constructor(root) {
+        this.root = root;
     }
 
     getFunction() {
@@ -102,7 +102,7 @@ class Acts {
 
 }
 
-let act = new Acts();
+let act = new Acts("https://jsonplaceholder.typicode.com/posts");
 act.getFunction();
 act.postFunction(1);
 act.putFunction("qui est esse");
