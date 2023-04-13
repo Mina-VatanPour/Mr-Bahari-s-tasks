@@ -9,34 +9,40 @@
             integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
             crossorigin="anonymous"></script>
 </head>
+
 <body>
 <div class="container p-5 border rounded my-5">
+
     <div class="row p-2">
-        <div class="col-md-2">
-            <span class="fw-bold fs-5">
-                <img src="./img/logo.jpg" class="img-fluid">
-                Meteorology
-            </span>
-        </div>
-        <div class="col-md-6 offset-md-4 d-flex align-items-center">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" id="city" placeholder="Enter City" aria-label="Example text with button addon" aria-describedby="button-addon1">
+        <div class="col-md-6 d-flex align-items-center">
+            <div class="input-group">
+                <input type="text" class="form-control fw-bold p-2" id="city" placeholder="Enter City"
+                       aria-label="Example text with button addon" aria-describedby="button-addon1" required>
                 <button class="btn btn-outline-dark" id="search" type="button">Search</button>
             </div>
         </div>
+        <div class="col-md-2 offset-md-4 ">
+            <span class="fw-bold fs-5">
+                Meteorology
+                <img src="./img/logo.jpg" class="img-fluid">
+            </span>
+        </div>
     </div>
+
     <hr>
+
     <div class="row p-2 my-3">
-        <p class="fw-bold fs-4 text-success">
+        <p class="fw-bold fs-4 text-success mb-0">
             <label id="cityName"></label>
-            <label id="divider"></label>
             <label id="country"></label>
         </p>
     </div>
-    <!-- tabs -->
+    <div class="text-danger fw-bold mb-3" style="display:none" id="loader"><label>L</label><label
+            class="spinner-grow "></label><label>ading...</label></div>
 
-    <div class="row p-2 my-3" id="tabs">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <!-- tabs -->
+    <div class="row p-2 my-3" id="tabs" style="display: none">
+        <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="daily-tab" data-bs-toggle="tab" data-bs-target="#daily-tab-pane"
                         type="button" role="tab" aria-controls="daily-tab-pane" aria-selected="true">Daily up to 7 days
@@ -50,10 +56,11 @@
 
         </ul>
         <!--  content of tabs -->
-        <div class="tab-content py-5" id="myTabContent">
+        <div class="tab-content py-5">
 
             <div class="tab-pane fade show active" id="daily-tab-pane" role="tabpanel" aria-labelledby="daily-tab"
-                 tabindex="0"></div>
+                 tabindex="0">
+            </div>
 
             <div class="tab-pane fade show" id="hourly-tab-pane" role="tabpanel" aria-labelledby="hourly-tab"
                  tabindex="0">Hourly
@@ -63,6 +70,8 @@
 
     </div>
 </div>
-<script src="./app.js"></script>
+
+<script type="module" src="./app.js"></script>
+
 </body>
 </html>
