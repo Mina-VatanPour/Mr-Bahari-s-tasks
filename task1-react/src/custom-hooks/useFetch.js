@@ -9,12 +9,11 @@ const useFetch = (url) => {
 
         fetch(url)
             .then(res => {
-                    if (!res.ok) {
-                        throw Error('not found item!');
-                    }
-                    return res.json()
+                if (!res.ok) {
+                    throw Error('not found item!');
                 }
-            )
+                return res.json()
+            })
             .then(data => {
                 setData(data);
             })

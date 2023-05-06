@@ -1,26 +1,27 @@
 import {useState} from "react";
 import useFetch from "../custom-hooks/useFetch";
 import {useNavigate} from 'react-router-dom';
+import AutoCompleteTitle from "./AutoCompleteTitle";
 
 
 const Home = () => {
 
     const [title, setTitle] = useState('');
-    const {data: posts} = useFetch('https://jsonplaceholder.typicode.com/posts');
+    const {data: posts} = useFetch('http://localhost:8000/posts');
     const navigate = useNavigate();
-
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (posts) {
-            const searchedPosts = posts.filter(post => {
-                return post.title.includes(title);
-            });
-            return (navigate('/search-result', {
-                state: {
-                    searchedPosts,
-                }
-            }))
+        if (posts && title.length > 0) {
+            const searchedPosts = posts.filter(post => post.title.includes(title))
+            if (searchedPosts) {
+                return (navigate('/search-result', {
+                    state: {
+                        searchedPosts,
+                        title
+                    }
+                }))
+            }
         }
     }
 
@@ -29,9 +30,10 @@ const Home = () => {
         <p style={{fontSize: '50pt'}}>SEARCH APP WITH REACT</p>
 
         <form onSubmit={handleSubmit}>
-            <input type="search" value={title} onChange={e => setTitle(e.target.value)}
-                   placeholder="Search for the title you want"/>
-            <button>search</button>
+
+            <AutoCompleteTitle title={title} setTitle={setTitle} posts={posts}/>
+
+            <button className="Button-search" style={{marginTop: '30px'}}>search</button>
         </form>
 
 
