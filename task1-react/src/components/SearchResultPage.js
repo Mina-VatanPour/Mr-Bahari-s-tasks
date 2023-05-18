@@ -1,30 +1,20 @@
-import {useLocation, Link} from "react-router-dom";
-
+import styles from '../css/styles.module.css';
+import {Link} from "react-router-dom"
+import ShowResult from "./ShowResult";
 
 const SearchResultPage = () => {
 
-    const location = useLocation();
-    let searchedPosts = location.state.searchedPosts;
-    let title = location.state.title;
+    const params = new URLSearchParams(window.location.search);
+    const queryParams = params.get('query').split('-').join(' ');
 
-    return (<div className="Search-result-page">
-
-        <p style={{fontSize: '20pt', fontWeight: 'bold', color: 'green'}}>Search Result :
-            ({searchedPosts.length > 0 ? searchedPosts.length + " Items Including << " + title + " >> Found" : " Not Found Items including << " + title + " >>"} ) </p>
-        <button
-            style={{background: 'red', padding: '10px', borderRadius: '5px', marginBottom: '20px'}}>
-            <Link to="/" style={{color: '#fff', textDecoration: 'none'}}>Back To Home</Link>
-        </button>
-
-        {searchedPosts && searchedPosts.map(post => {
-            return (
-                <div className="Result-items" key={post.id}>
-                    <p style={{color: 'blue', fontSize: '14pt', fontWeight: 'bold'}}>TITLE : {post.title}</p>
-                    <p style={{fontSize: '12pt'}}>{post.body}</p>
-                </div>
-            )
-        })}
-
-    </div>)
+    return (
+        <div className={styles.searchResultPage}>
+            <p className={styles.result}>Search Result : </p>
+            <button className={styles.button}>
+                <Link to="/" className={styles.link}>Back To Home</Link>
+            </button>
+            <ShowResult queryParams={queryParams}/>
+        </div>
+    )
 }
 export default SearchResultPage;
