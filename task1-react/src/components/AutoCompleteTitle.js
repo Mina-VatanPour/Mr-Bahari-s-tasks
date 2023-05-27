@@ -13,7 +13,7 @@ const AutoCompleteTitle = ({title, setTitle}) => {
                     inputValue={title}
                     onInputChange={(e, newTitle) => setTitle(newTitle)}
                     options={posts}
-                    getOptionLabel={option => typeof option === "string" ? option : option.title}
+                    getOptionLabel={option => option.title}
                     key={option => option.id}
                     renderInput={(params) => <TextField {...params} />}
                 />}

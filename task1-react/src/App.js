@@ -5,12 +5,10 @@ import SearchResultPage from "./components/SearchResultPage"
 function App() {
     return (
         <Router>
-            <div className="App">
                 <Routes>
                     <Route exact path="/" element={<Home/>}/>
                     <Route path="/search-result" element={<SearchResultPage/>}/>
                 </Routes>
-            </div>
         </Router>
     )
 }

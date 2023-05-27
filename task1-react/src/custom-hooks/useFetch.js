@@ -1,4 +1,5 @@
 import {useState, useEffect} from "react";
+import axios from 'axios';
 
 const useFetch = (url) => {
 
@@ -7,16 +8,12 @@ const useFetch = (url) => {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
+
         setIsLoading(true);
-        fetch(url)
-            .then(res => {
-                if (!res.ok) {
-                    throw Error('not found item!')
-                }
-                return res.json()
-            })
-            .then(data => {
-                setData(data);
+        axios.get(url)
+            .then(response => {
+                if (response.status !== 200) throw Error('not found item!')
+                setData(response.data);
                 setIsLoading(false);
             })
             .catch(err => setError(err.message))

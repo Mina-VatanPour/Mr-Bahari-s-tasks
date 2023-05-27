@@ -10,9 +10,4 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <App/>
 );
-// با برداشتن این تگ از ذوبار رندر شدن جلوگیری میشه
-// <React.StrictMode>
-//     <App/>
-// </React.StrictMode>
-
 

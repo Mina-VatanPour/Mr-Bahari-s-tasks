@@ -5,7 +5,7 @@ import ShowResult from "./ShowResult";
 const SearchResultPage = () => {
 
     const params = new URLSearchParams(window.location.search);
-    const queryParams = params.get('query').split('-').join(' ');
+    const queryParams = params.get('query');
 
     return (
         <div className={styles.searchResultPage}>

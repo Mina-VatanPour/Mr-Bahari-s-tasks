@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {useNavigate} from "react-router-dom";
+import {createSearchParams, useNavigate} from "react-router-dom";
 import AutoCompleteTitle from "./AutoCompleteTitle";
 import styles from "../css/styles.module.css";
 
@@ -8,14 +8,13 @@ const Home = () => {
     const [title, setTitle] = useState('');
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = (event) => {
+        event.preventDefault();
         navigate({
             pathname: '/search-result',
-            search: `query=${title.replace(/\s/g, '-')}`,
+            search: `?${createSearchParams({ query: title })}`,
         });
     }
-
     return (
         <div className={styles.home}>
             <p className={styles.fontXl}>SEARCH APP WITH REACT</p>
