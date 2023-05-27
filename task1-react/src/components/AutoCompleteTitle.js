@@ -11,11 +11,12 @@ const AutoCompleteTitle = ({title, setTitle}) => {
             {posts &&
                 <Autocomplete
                     inputValue={title}
-                    onInputChange={(e, newTitle) => setTitle(newTitle)}
+                    onInputChange={(event, newTitle) => setTitle(newTitle)}
                     options={posts}
                     getOptionLabel={option => option.title}
                     key={option => option.id}
                     renderInput={(params) => <TextField {...params} />}
+                    open={title.length >= 2}
                 />}
         </div>
     )
