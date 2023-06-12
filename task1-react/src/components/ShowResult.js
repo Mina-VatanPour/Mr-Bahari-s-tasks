@@ -7,15 +7,17 @@ const ShowResult = ({queryParams}) => {
 
     return (
         <div className="showResult">
-            {isLoading ? <p>LOADING...</p> : posts && posts.map(post => {
-                return (
-                    post.title.includes(queryParams) || post.title === queryParams ?
+
+            {isLoading ? <p>LOADING...</p> :
+                posts && posts.filter(item => item.title.includes(queryParams) || item.title === queryParams).map(post => {
+                    return (
                         <div className={styles.resultItems} key={post.id}>
                             <p className={styles.titles}>TITLE : {post.title}</p>
                             <p className={styles.fontSm}>{post.body}</p>
-                        </div> : null
-                )
-            })}
+                        </div>
+                    )
+                })
+            }
         </div>
     )
 

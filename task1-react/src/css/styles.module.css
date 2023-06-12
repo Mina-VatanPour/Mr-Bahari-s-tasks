@@ -6,10 +6,29 @@
 
 input {
     padding: 20px;
+    border: 1px solid #eee;
     box-shadow: 1px 2px 3px #eee;
     border-radius: 5px;
     width: 600px;
     display: inline-block;
+}
+
+.searchBox {
+    padding: 20px;
+    box-shadow: 1px 2px 3px #eee;
+    border-radius: 5px;
+    width: 651px;
+    margin: 10px auto;
+    display: none;
+    background: #eee;
+}
+
+.selectOption {
+    text-align: left;
+}
+
+.selectOption:hover {
+    cursor: pointer;
 }
 
 

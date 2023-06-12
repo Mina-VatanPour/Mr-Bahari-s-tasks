@@ -8,19 +8,22 @@ const Home = () => {
     const [title, setTitle] = useState('');
     const navigate = useNavigate();
 
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        navigate({
-            pathname: '/search-result',
-            search: `?${createSearchParams({ query: title })}`,
-        });
+        if (title.length > 0) {
+            navigate({
+                pathname: '/search-result',
+                search: `?${createSearchParams({query: title})}`,
+            })
+        }
     }
+
     return (
         <div className={styles.home}>
             <p className={styles.fontXl}>SEARCH APP WITH REACT</p>
             <form onSubmit={handleSubmit}>
                 <AutoCompleteTitle title={title} setTitle={setTitle}/>
-                <button className={styles.buttonSearch}>search</button>
             </form>
         </div>
     )

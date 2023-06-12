@@ -1,11 +1,12 @@
 import styles from '../css/styles.module.css';
 import {Link} from "react-router-dom"
 import ShowResult from "./ShowResult";
+import {useSearchParams} from "react-router-dom";
 
 const SearchResultPage = () => {
 
-    const params = new URLSearchParams(window.location.search);
-    const queryParams = params.get('query');
+    const [searchParams] = useSearchParams();
+    const queryParams = searchParams.get('query');
 
     return (
         <div className={styles.searchResultPage}>
@@ -13,7 +14,7 @@ const SearchResultPage = () => {
             <button className={styles.button}>
                 <Link to="/" className={styles.link}>Back To Home</Link>
             </button>
-            <ShowResult queryParams={queryParams}/>
+            <ShowResult queryParams={queryParams }/>
         </div>
     )
 }
